@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laura Christina</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    html {
+      scroll-behavior: smooth; /* sanftes Scrollen */
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+    }
+
+    /* Oberer Streifen mit Muster */
+    header {
+      background: repeating-linear-gradient(
+        45deg,
+        #f7b6d2,
+        #f7b6d2 10px,
+        #f9cfe0 10px,
+        #f9cfe0 20px
+      );
+      text-align: center;
+      padding: 20px 0;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+
+    /* Navigationsband */
+    nav {
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px 0;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #8A2BE2;
+    }
+
+    /* Hero-Bild */
+    .hero {
+      width: 100%;
+      height: 60vh;
+      background: url('LauraChristina_Autorenfoto-min.JPEG') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Allgemeine Sektionen */
+    section {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #8A2BE2;
+    }
+
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background-color: #f2f2f2;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Kopfbereich mit Muster -->
+  <header>Laura Christina</header>
+
+  <!-- Menüband -->
+  <nav>
+    <a href="#startseite">Startseite</a>
+    <a href="#buecher">Bücher</a>
+    <a href="#ueber-uns">Über uns</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+
+  <!-- Hero-Bild -->
+  <div class="hero" id="startseite">
+    Willkommen!
+  </div>
+
+  <!-- Startseite -->
+  <section>
+    <h2>Startseite</h2>
+    <p>Willkommen auf der offiziellen Seite von <strong>Laura Christina</strong>! Hier findest du Informationen zu ihren Büchern, Projekten und mehr.</p>
+  </section>
+
+  <!-- Bücher -->
+  <section id="buecher">
+    <h2>Bücher</h2>
+    <p>Hier werden demnächst die aktuellen Werke vorgestellt – mit spannenden Einblicken in die Geschichten und die Entstehung.</p>
+  </section>
+
+  <!-- Über uns -->
+  <section id="ueber-uns">
+    <h2>Über uns</h2>
+    <p>Laura Christina ist eine leidenschaftliche Autorin mit einem Gespür für Emotionen, Tiefe und authentische Charaktere. Erfahre mehr über ihren Weg und ihre Inspiration.</p>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Du möchtest Laura Christina kontaktieren? Schreibe eine Nachricht an <a href="mailto:info@laurachristina.de">info@laurachristina.de</a>.</p>
+  </section>
+
+  <footer>
+    © 2025 Laura Christina – Alle Rechte vorbehalten.
+  </footer>
+</body>
+</html>
