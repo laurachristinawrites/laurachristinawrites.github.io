@@ -21,8 +21,9 @@
 
         @media (max-width: 600px) {
         img {
-           // max-width: 400px;
-            width: 80%;
+           width: 60%;             /* Standardgröße am PC */
+           max-width: 400px;       /* Begrenzung – Bild wird nie größer als 400px */
+            min-width: 200px; 
             height: 60vh; /* ca. 1/3 der Bildschirmhöhe */
             border-radius: 20px; /* runde Ecken */
             object-fit: cover;   /* falls das Bild zuschneiden muss */
