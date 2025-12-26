@@ -165,6 +165,32 @@ Beruflich sind sie im Bereich IT und eHealth tätig. Unter dem Pseudonym „Laur
     <p>Schreibe uns gerne an <a href="mailto:xyz">post@laurachristina.com</a> oder folge Laura Christina auf Social Media.</p>
   </section>
 
+
+  <div id="instagram-feed"></div>
+
+<script>
+const accessToken = 'EAASczP7JeoUBQWESB8KNo35AbBrDJG12b14hjcjAOAk3Trdx0XYWZCU7Oy7h5ZBPJnyhlIEy9FHqhx7DGjdz9IZA6O7ikHykva2nK00QrwnTQyLeTU1UtysgsjwGyY05VBcphJNOsLmkkgEQfVh9vd20meVgMV6ifgIqeKsXWDLobEiwOXbQs4wUADZAQxmgEgZDZD'; // <--- hier dein Access Token einfügen
+const feedContainer = document.getElementById('instagram-feed');
+
+// API-Request
+fetch(`https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink&access_token=${accessToken}`)
+  .then(response => response.json())
+  .then(data => {
+    data.data.forEach(post => {
+      const postEl = document.createElement('a');
+      postEl.href = post.permalink;
+      postEl.target = '_blank';
+      postEl.innerHTML = `
+        <img src="${post.media_url}" alt="${post.caption ? post.caption : 'Instagram Post'}" />
+        ${post.caption ? `<span>${post.caption}</span>` : ''}
+      `;
+      feedContainer.appendChild(postEl);
+    });
+  })
+  .catch(err => console.error('Fehler beim Laden des Instagram-Feeds:', err));
+</script>
+  
+
   <footer>
     © 2025 Laura Christina – Alle Rechte vorbehalten.
   </footer>
