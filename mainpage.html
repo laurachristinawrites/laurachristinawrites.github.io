@@ -119,6 +119,34 @@
         gap: 20px;
       }
     }
+
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      max-width: 1000px;
+      margin: 50px auto;
+    }
+    .insta-post {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f9f9f9;
+    }
+    .insta-post img {
+      width: 100%;
+      display: block;
+    }
+    .insta-caption {
+      padding: 10px;
+      font-size: 14px;
+      color: #333;
+    }
+    .insta-post a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
   </style>
 </head>
 <body>
@@ -166,29 +194,51 @@ Beruflich sind sie im Bereich IT und eHealth tätig. Unter dem Pseudonym „Laur
   </section>
 
 
-  <div id="instagram-feed"></div>
+  <h1 style="text-align:center;">Instagram Feed</h1>
+  <div class="insta-grid" id="instaGrid"></div>
 
-<script>
-const accessToken = 'EAASczP7JeoUBQSw77gltuubDg7ZAZA7jVbAPqs3BuNOzqhFCjErLy8QPXWsoOffRYAuL4ZBFcvb3fJj1is2MAcIpSACZA1CwkXtVZAZCK9AdjVwcePfs2MW30ULrMkTrx5EZAh2j1QRMyiruO5r1yqBgHTRLHgbLwcH5X8LSZCJTT0U6ePQdulaYrn4SX6obPmXTeDlNQwmDKQyUkahKZC8JhoZA3LJ22g3R0CQEnMNkZBDDzs51otkIZAuGnJsUCoersECoIp9ZCtKtOzIhUiZAghT98L4gZDZD'; // <--- hier dein Access Token einfügen
-const feedContainer = document.getElementById('instagram-feed');
+  <script>
+    const accessToken = "YOUR_USER_ACCESS_TOKEN_HERE"; // <--- Hier deinen User Access Token einfügen
+    const instagramBusinessId = "17841477289662770"; // <--- Deine Instagram Business ID
 
-// API-Request
-fetch(`https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink&access_token=${accessToken}`)
-  .then(response => response.json())
-  .then(data => {
-    data.data.forEach(post => {
-      const postEl = document.createElement('a');
-      postEl.href = post.permalink;
-      postEl.target = '_blank';
-      postEl.innerHTML = `
-        <img src="${post.media_url}" alt="${post.caption ? post.caption : 'Instagram Post'}" />
-        ${post.caption ? `<span>${post.caption}</span>` : ''}
-      `;
-      feedContainer.appendChild(postEl);
-    });
-  })
-  .catch(err => console.error('Fehler beim Laden des Instagram-Feeds:', err));
-</script>
+    async function fetchInstagramPosts() {
+      const url = `https://graph.facebook.com/v17.0/${instagramBusinessId}/media?fields=id,caption,media_type,media_url,permalink&access_token=${accessToken}`;
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data.data && data.data.length > 0) {
+          displayPosts(data.data);
+        } else {
+          document.getElementById('instaGrid').innerHTML = "<p style='text-align:center;'>No posts yet.</p>";
+        }
+      } catch (error) {
+        console.error("Fehler beim Laden des Instagram-Feeds:", error);
+        document.getElementById('instaGrid').innerHTML = "<p style='text-align:center;color:red;'>Failed to load Instagram feed.</p>";
+      }
+    }
+
+    function displayPosts(posts) {
+      const grid = document.getElementById('instaGrid');
+      grid.innerHTML = "";
+      posts.forEach(post => {
+        // Nur Bilder und Videos anzeigen
+        if (post.media_type === "IMAGE" || post.media_type === "VIDEO") {
+          const div = document.createElement('div');
+          div.classList.add('insta-post');
+          div.innerHTML = `
+            <a href="${post.permalink}" target="_blank">
+              <img src="${post.media_url}" alt="Instagram post">
+              <div class="insta-caption">${post.caption ? post.caption : ""}</div>
+            </a>
+          `;
+          grid.appendChild(div);
+        }
+      });
+    }
+
+    // Fetch posts on load
+    fetchInstagramPosts();
+  </script>
   
 
   <footer>
