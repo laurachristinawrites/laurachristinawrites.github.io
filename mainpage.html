@@ -218,23 +218,21 @@ Beruflich sind sie im Bereich IT und eHealth tätig. Unter dem Pseudonym „Laur
     }
 
     function displayPosts(posts) {
-      const grid = document.getElementById('instaGrid');
-      grid.innerHTML = "";
-      posts.forEach(post => {
-        // Nur Bilder und Videos anzeigen
-        if (post.media_type === "IMAGE" || post.media_type === "VIDEO") {
-          const div = document.createElement('div');
-          div.classList.add('insta-post');
-          div.innerHTML = `
-            <a href="${post.permalink}" target="_blank">
-              <img src="${post.media_url}" alt="Instagram post">
-              <div class="insta-caption">${post.caption ? post.caption : ""}</div>
-            </a>
-          `;
-          grid.appendChild(div);
-        }
-      });
+  const grid = document.getElementById('instaGrid');
+  grid.innerHTML = "";
+  posts.forEach(post => {
+    if (post.media_type === "IMAGE" || post.media_type === "VIDEO") {
+      const div = document.createElement('div');
+      div.classList.add('insta-post');
+      div.innerHTML = `
+        <a href="${post.permalink}" target="_blank">
+          <img src="${post.media_url}" alt="Instagram post">
+        </a>
+      `;
+      grid.appendChild(div);
     }
+  });
+}
 
     // Fetch posts on load
     fetchInstagramPosts();
