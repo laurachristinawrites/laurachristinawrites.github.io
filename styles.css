@@ -1,0 +1,1309 @@
+```css
+/* =========================================
+   LAURA CHRISTINA
+   Beige / Waldgrün / Rosé
+========================================= */
+
+:root {
+
+  --beige: #f7f2ea;
+  --beige-dark: #eee5d9;
+
+  --cream: #fffdf9;
+
+  --green: #24483c;
+  --green-dark: #17382e;
+
+  --rose: #c9878e;
+  --rose-light: #e9c9c9;
+
+  --brown: #4d433c;
+  --muted: #82756a;
+
+  --border: #ded3c7;
+
+  --shadow:
+    0 20px 60px rgba(49, 38, 29, 0.10);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+
+  margin: 0;
+
+  background: var(--beige);
+
+  color: var(--brown);
+
+  font-family:
+    "DM Sans",
+    Arial,
+    sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 1000;
+
+  min-height: 78px;
+
+  padding: 0 5vw;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 35px;
+
+  background:
+    rgba(247, 242, 234, 0.94);
+
+  backdrop-filter: blur(14px);
+
+  border-bottom:
+    1px solid rgba(36, 72, 60, 0.10);
+}
+
+
+.logo {
+
+  color: var(--green);
+
+  font-family:
+    "Amsterdam Four",
+    cursive;
+
+  font-size: 2rem;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+}
+
+
+.navigation {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 30px;
+
+  flex: 1;
+}
+
+
+.navigation a {
+
+  text-decoration: none;
+
+  font-size: 0.88rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+
+  transition: 0.2s;
+}
+
+
+.navigation a:hover {
+
+  color: var(--rose);
+}
+
+
+.cart-button {
+
+  border: none;
+
+  background: var(--green);
+
+  color: white;
+
+  border-radius: 50px;
+
+  padding: 11px 18px;
+
+  cursor: pointer;
+
+  font-weight: 700;
+
+  transition: 0.2s;
+}
+
+
+.cart-button:hover {
+
+  background: var(--green-dark);
+
+  transform: translateY(-2px);
+}
+
+
+.cart-button span {
+
+  display: inline-grid;
+
+  place-items: center;
+
+  width: 22px;
+
+  height: 22px;
+
+  margin-left: 5px;
+
+  border-radius: 50%;
+
+  background: var(--rose);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+  position: relative;
+
+  min-height: 78vh;
+
+  display: grid;
+
+  place-items: center;
+
+  text-align: center;
+
+  background:
+
+    url("LauraChristina_Autorenfoto-min.JPEG")
+
+    center 40%
+
+    / cover
+
+    no-repeat;
+}
+
+
+.hero-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      rgba(23, 56, 46, 0.70),
+      rgba(23, 56, 46, 0.15)
+    );
+}
+
+
+.hero-content {
+
+  position: relative;
+
+  z-index: 1;
+
+  color: white;
+
+  max-width: 850px;
+
+  padding: 70px 25px;
+}
+
+
+.eyebrow {
+
+  margin: 0 0 15px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.18em;
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+}
+
+
+.hero h1 {
+
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(3rem, 6vw, 5.7rem);
+
+  line-height: 0.98;
+
+  font-weight: 500;
+}
+
+
+.hero h1 em {
+
+  color: var(--rose-light);
+
+  font-style: italic;
+}
+
+
+.hero-text {
+
+  margin:
+    28px
+    0
+    32px;
+
+  font-size: 1.12rem;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    14px
+    26px;
+
+  border-radius: 50px;
+
+  text-decoration: none;
+
+  font-weight: 700;
+
+  transition: 0.2s;
+}
+
+
+.button:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px
+    rgba(0,0,0,0.15);
+}
+
+
+.button-rose {
+
+  background: var(--rose);
+
+  color: white;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro-section {
+
+  max-width: 1180px;
+
+  margin: auto;
+
+  padding:
+    110px
+    6vw;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 90px;
+
+  align-items: center;
+}
+
+
+.intro-section h2,
+.section-heading h2,
+.contact-section h2 {
+
+  margin: 0;
+
+  color: var(--green);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-weight: 500;
+
+  font-size:
+    clamp(2.5rem, 4vw, 4rem);
+
+  line-height: 1.05;
+}
+
+
+.intro-text {
+
+  color: var(--muted);
+
+  font-size: 1.12rem;
+
+  line-height: 1.9;
+}
+
+
+/* =========================================
+   BOOKS
+========================================= */
+
+.books-section {
+
+  padding:
+    110px
+    6vw;
+
+  background: var(--cream);
+}
+
+
+.section-heading {
+
+  max-width: 650px;
+
+  margin:
+    0
+    auto
+    60px;
+
+  text-align: center;
+}
+
+
+.section-description {
+
+  color: var(--muted);
+
+  line-height: 1.7;
+
+  margin-top: 25px;
+}
+
+
+.book-preview {
+
+  max-width: 950px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    0.8fr
+    1fr;
+
+  align-items: center;
+
+  gap: 80px;
+}
+
+
+.book-preview-image {
+
+  max-width: 330px;
+
+  margin: auto;
+
+  box-shadow: var(--shadow);
+}
+
+
+.book-preview-image img {
+
+  width: 100%;
+}
+
+
+.book-preview-content h3 {
+
+  color: var(--green);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 3rem;
+
+  margin:
+    0
+    0
+    20px;
+}
+
+
+.book-preview-content p:not(.eyebrow):not(.coming-soon) {
+
+  color: var(--muted);
+
+  line-height: 1.8;
+}
+
+
+.coming-soon {
+
+  display: inline-block;
+
+  margin-top: 20px;
+
+  color: var(--rose);
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+
+  font-size: 0.75rem;
+}
+
+
+.text-button {
+
+  display: block;
+
+  margin-top: 25px;
+
+  color: var(--green);
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+
+/* =========================================
+   SHOP
+========================================= */
+
+.shop-section {
+
+  padding:
+    120px
+    6vw;
+
+  background: var(--beige);
+}
+
+
+.products {
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(270px, 1fr)
+    );
+
+  gap: 30px;
+}
+
+
+.product-card {
+
+  background: white;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow);
+
+  transition: 0.25s;
+}
+
+
+.product-card:hover {
+
+  transform: translateY(-6px);
+}
+
+
+.product-image {
+
+  position: relative;
+
+  background: var(--beige-dark);
+}
+
+
+.product-image img {
+
+  width: 100%;
+
+  aspect-ratio: 3 / 4;
+
+  object-fit: cover;
+}
+
+
+.product-label {
+
+  position: absolute;
+
+  top: 18px;
+
+  left: 18px;
+
+  background: var(--rose);
+
+  color: white;
+
+  padding:
+    7px
+    12px;
+
+  border-radius: 50px;
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+}
+
+
+.product-content {
+
+  padding: 25px;
+}
+
+
+.product-category {
+
+  margin: 0 0 7px;
+
+  color: var(--rose);
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+}
+
+
+.product-content h3 {
+
+  margin:
+    0
+    0
+    10px;
+
+  color: var(--green);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 1.65rem;
+}
+
+
+.product-description {
+
+  min-height: 50px;
+
+  color: var(--muted);
+
+  line-height: 1.6;
+
+  font-size: 0.95rem;
+}
+
+
+.product-bottom {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-top: 22px;
+}
+
+
+.price {
+
+  color: var(--green);
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+.add-to-cart {
+
+  border: none;
+
+  background: var(--green);
+
+  color: white;
+
+  padding:
+    11px
+    15px;
+
+  border-radius: 50px;
+
+  cursor: pointer;
+
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  transition: 0.2s;
+}
+
+
+.add-to-cart:hover {
+
+  background: var(--green-dark);
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about-section {
+
+  padding:
+    120px
+    6vw;
+}
+
+
+.about-card {
+
+  max-width: 1000px;
+
+  margin: auto;
+
+  background: var(--green);
+
+  color: white;
+
+  border-radius: 30px;
+
+  padding:
+    clamp(40px, 7vw, 80px);
+
+  box-shadow: var(--shadow);
+}
+
+
+.about-card h2 {
+
+  color: white;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(2.4rem, 4vw, 3.7rem);
+
+  line-height: 1.05;
+
+  margin:
+    0
+    35px;
+}
+
+
+.about-card p:not(.eyebrow) {
+
+  color: #e8e1d8;
+
+  line-height: 1.85;
+
+  max-width: 750px;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact-section {
+
+  padding:
+    110px
+    20px;
+
+  text-align: center;
+
+  background: var(--cream);
+}
+
+
+.contact-section > p:not(.eyebrow) {
+
+  color: var(--muted);
+
+  margin:
+    20px
+    0;
+}
+
+
+.contact-email {
+
+  color: var(--green);
+
+  font-weight: 800;
+
+  font-size: 1.15rem;
+
+  text-decoration:
+
+    underline;
+
+  text-decoration-color:
+
+    var(--rose);
+
+  text-underline-offset: 6px;
+}
+
+
+/* =========================================
+   INSTAGRAM
+========================================= */
+
+.instagram-section {
+
+  padding:
+    100px
+    6vw;
+}
+
+
+.instagram-grid {
+
+  max-width: 1000px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      1fr
+    );
+
+  gap: 15px;
+}
+
+
+.instagram-grid img {
+
+  width: 100%;
+
+  aspect-ratio: 1;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+  padding:
+    30px
+    6vw;
+
+  background:
+    var(--green-dark);
+
+  color: #ded8d0;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  font-size: 0.82rem;
+}
+
+
+.footer-links {
+
+  display: flex;
+
+  gap: 25px;
+}
+
+
+.footer-links a {
+
+  text-decoration: none;
+}
+
+
+/* =========================================
+   WARENKORB
+========================================= */
+
+.cart-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1998;
+
+  background:
+    rgba(23, 56, 46, 0.45);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: 0.25s;
+}
+
+
+.cart-overlay.active {
+
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+
+.cart-drawer {
+
+  position: fixed;
+
+  top: 0;
+
+  right: 0;
+
+  z-index: 2000;
+
+  width:
+    min(440px, 100%);
+
+  height: 100vh;
+
+  background:
+    var(--cream);
+
+  box-shadow:
+    -15px
+    0
+    50px
+    rgba(0,0,0,0.18);
+
+  transform:
+    translateX(105%);
+
+  transition: 0.3s;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.cart-drawer.active {
+
+  transform:
+    translateX(0);
+}
+
+
+.cart-header {
+
+  padding: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom:
+    1px solid
+    var(--border);
+}
+
+
+.cart-header h2 {
+
+  margin: 0;
+
+  color: var(--green);
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 2rem;
+}
+
+
+.close-cart {
+
+  border: none;
+
+  background: none;
+
+  font-size: 2rem;
+
+  cursor: pointer;
+}
+
+
+.cart-items {
+
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 25px;
+}
+
+
+.cart-item {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto;
+
+  gap: 15px;
+
+  padding:
+    18px
+    0;
+
+  border-bottom:
+    1px solid
+    var(--border);
+}
+
+
+.cart-item-name {
+
+  color: var(--green);
+
+  font-weight: 700;
+}
+
+
+.cart-item-price {
+
+  color: var(--muted);
+
+  font-size: 0.9rem;
+
+  margin-top: 5px;
+}
+
+
+.quantity-controls {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 10px;
+}
+
+
+.quantity-controls button {
+
+  width: 28px;
+
+  height: 28px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    var(--border);
+
+  background: white;
+
+  cursor: pointer;
+}
+
+
+.remove-item {
+
+  border: none;
+
+  background: none;
+
+  color: var(--rose);
+
+  cursor: pointer;
+
+  font-size: 0.8rem;
+}
+
+
+.cart-footer {
+
+  padding: 25px;
+
+  border-top:
+    1px solid
+    var(--border);
+}
+
+
+.cart-total {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+
+  color: var(--green);
+
+  font-size: 1.1rem;
+}
+
+
+.checkout-button {
+
+  width: 100%;
+
+  border: none;
+
+  padding: 15px;
+
+  border-radius: 50px;
+
+  background: var(--green);
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.checkout-note {
+
+  text-align: center;
+
+  color: var(--muted);
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+  .header {
+
+    flex-wrap: wrap;
+
+    padding:
+      15px
+      5vw;
+  }
+
+
+  .logo {
+
+    flex: 1;
+
+    font-size: 1.7rem;
+  }
+
+
+  .navigation {
+
+    order: 5;
+
+    width: 100%;
+
+    display: none;
+
+    flex-direction: column;
+
+    gap: 0;
+  }
+
+
+  .navigation.active {
+
+    display: flex;
+  }
+
+
+  .navigation a {
+
+    padding: 10px;
+  }
+
+
+  .intro-section {
+
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+
+  .book-preview {
+
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+
+  .book-preview-content {
+
+    text-align: center;
+  }
+
+
+  .instagram-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  footer {
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    text-align: center;
+  }
+
+
+  .footer-links {
+
+    justify-content: center;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .hero {
+
+    min-height: 72vh;
+  }
+
+
+  .product-bottom {
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .add-to-cart {
+
+    width: 100%;
+  }
+
+}
+```
