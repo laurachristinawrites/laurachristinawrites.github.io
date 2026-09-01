@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Laura Christina | Autorinnen</title>
+
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Schriften -->
+  <link href="https://fonts.cdnfonts.com/css/amsterdam-four" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+  <a href="#startseite" class="logo">
+    Laura Christina
+  </a>
+
+  <nav class="navigation">
+
+    <a href="#startseite">Startseite</a>
+    <a href="#buecher">Bücher</a>
+    <a href="#shop">Shop</a>
+    <a href="#ueber-uns">Über uns</a>
+    <a href="#kontakt">Kontakt</a>
+
+  </nav>
+
+  <button class="cart-button" onclick="openCart()">
+    Warenkorb
+    <span id="cart-count">0</span>
+  </button>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="startseite">
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <p class="eyebrow">Laura Christina</p>
+
+    <h1>
+      Geschichten, die<br>
+      <em>Herzen</em> höherschlagen lassen.
+    </h1>
+
+    <p class="hero-text">
+      RomComs mit Herz, Humor und einer guten Portion Chaos.
+    </p>
+
+    <a href="#shop" class="button button-rose">
+      Zum Shop
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="intro-section">
+
+  <div class="intro-title">
+
+    <p class="eyebrow">Unsere Geschichten</p>
+
+    <h2>
+      Zwischen Herzklopfen<br>
+      und Happy End.
+    </h2>
+
+  </div>
+
+  <div class="intro-text">
+
+    <p>
+      Wir schreiben romantische Geschichten über starke Frauen,
+      charmante Männer und die kleinen Katastrophen, die passieren,
+      wenn Liebe plötzlich nicht nach Plan läuft.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= BÜCHER ================= -->
+
+<section class="books-section" id="buecher">
+
+  <div class="section-heading">
+
+    <p class="eyebrow">Bücher</p>
+
+    <h2>
+      Geschichten zum<br>
+      Verlieben.
+    </h2>
+
+  </div>
+
+  <div class="book-preview">
+
+    <div class="book-preview-image">
+      <img src="cover-placeholder.svg" alt="Wrong on Paper">
+    </div>
+
+    <div class="book-preview-content">
+
+      <p class="eyebrow">Debütroman</p>
+
+      <h3>Wrong on Paper</h3>
+
+      <p>
+        Zwei Menschen, die auf dem Papier überhaupt nicht
+        zusammenpassen. Und eine Geschichte, die beweist,
+        dass man Liebe manchmal nicht planen kann.
+      </p>
+
+      <p class="coming-soon">
+        Coming Soon
+      </p>
+
+      <a href="#shop" class="text-button">
+        Zum Shop →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SHOP ================= -->
+
+<section class="shop-section" id="shop">
+
+  <div class="section-heading">
+
+    <p class="eyebrow">Unser Shop</p>
+
+    <h2>
+      Ein Stück<br>
+      Laura Christina.
+    </h2>
+
+    <p class="section-description">
+      Bücher, besondere Ausgaben und kleine Dinge
+      für alle, die Geschichten genauso lieben wie wir.
+    </p>
+
+  </div>
+
+
+  <div class="products">
+
+    <!-- PRODUKT -->
+
+    <article class="product-card">
+
+      <div class="product-image">
+
+        <img
+          src="cover-placeholder.svg"
+          alt="Wrong on Paper"
+        >
+
+        <span class="product-label">
+          Neu
+        </span>
+
+      </div>
+
+      <div class="product-content">
+
+        <p class="product-category">
+          Buch
+        </p>
+
+        <h3>
+          Wrong on Paper
+        </h3>
+
+        <p class="product-description">
+          Unser Debütroman – eine RomCom voller
+          Herz, Humor und Chaos.
+        </p>
+
+        <div class="product-bottom">
+
+          <span class="price">
+            € 14,90
+          </span>
+
+          <button
+            class="add-to-cart"
+            onclick="addToCart('wrong-on-paper')"
+          >
+            In den Warenkorb
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- ZWEITES PRODUKT – später aktivieren -->
+
+    <!--
+
+    <article class="product-card">
+
+      <div class="product-image">
+        <img src="produkt.jpg" alt="Produkt">
+      </div>
+
+      <div class="product-content">
+
+        <p class="product-category">
+          Special Edition
+        </p>
+
+        <h3>
+          Wrong on Paper
+        </h3>
+
+        <p class="product-description">
+          Special Edition mit Farbschnitt.
+        </p>
+
+        <div class="product-bottom">
+
+          <span class="price">
+            € 24,90
+          </span>
+
+          <button
+            class="add-to-cart"
+            onclick="addToCart('special-edition')"
+          >
+            In den Warenkorb
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    -->
+
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about-section" id="ueber-uns">
+
+  <div class="about-card">
+
+    <div class="about-content">
+
+      <p class="eyebrow">
+        Über uns
+      </p>
+
+      <h2>
+        Zwei Freundinnen.<br>
+        Eine gemeinsame Leidenschaft.
+      </h2>
+
+      <p>
+        Laura Dietrich und Christina Sommer haben sich während
+        ihres Studiums in Graz kennengelernt und schnell festgestellt,
+        dass sie nicht nur die Liebe zu guten Geschichten verbindet,
+        sondern auch der Wunsch, selbst welche zu erzählen.
+      </p>
+
+      <p>
+        Aus gemeinsamen Leserunden wurde die Idee geboren,
+        ein eigenes Buch zu schreiben – als kreativer Ausgleich
+        zum Alltag und als schöner Anlass, sich regelmäßig zu treffen.
+      </p>
+
+      <p>
+        Unter dem Pseudonym <strong>Laura Christina</strong> schreiben
+        sie gemeinsam RomComs, mit denen sie ihre Leserinnen und
+        Leser in authentische, herzerwärmende und humorvolle
+        Geschichten entführen möchten.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact-section" id="kontakt">
+
+  <p class="eyebrow">
+    Kontakt
+  </p>
+
+  <h2>
+    Schreib uns.
+  </h2>
+
+  <p>
+    Fragen, Feedback oder einfach ein Hallo?
+  </p>
+
+  <a
+    href="mailto:post@laurachristina.com"
+    class="contact-email"
+  >
+    post@laurachristina.com
+  </a>
+
+</section>
+
+
+<!-- ================= INSTAGRAM ================= -->
+
+<section class="instagram-section">
+
+  <div class="section-heading">
+
+    <p class="eyebrow">
+      Instagram
+    </p>
+
+    <h2>
+      Hinter den Kulissen.
+    </h2>
+
+  </div>
+
+  <div
+    class="instagram-grid"
+    id="instaGrid"
+  >
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div>
+    © 2026 Laura Christina
+  </div>
+
+  <div class="footer-links">
+
+    <a href="#">Impressum</a>
+    <a href="#">Datenschutz</a>
+
+  </div>
+
+</footer>
+
+
+<!-- ================= WARENKORB ================= -->
+
+<div
+  class="cart-overlay"
+  id="cart-overlay"
+  onclick="closeCart()"
+></div>
+
+
+<aside
+  class="cart-drawer"
+  id="cart-drawer"
+>
+
+  <div class="cart-header">
+
+    <h2>
+      Warenkorb
+    </h2>
+
+    <button
+      onclick="closeCart()"
+      class="close-cart"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <div
+    class="cart-items"
+    id="cart-items"
+  >
+  </div>
+
+
+  <div class="cart-footer">
+
+    <div class="cart-total">
+
+      <span>
+        Gesamt
+      </span>
+
+      <strong id="cart-total">
+        € 0,00
+      </strong>
+
+    </div>
+
+    <button
+      class="checkout-button"
+      onclick="checkout()"
+    >
+      Zur Kasse
+    </button>
+
+    <p class="checkout-note">
+      Sichere Zahlung über Stripe
+    </p>
+
+  </div>
+
+</aside>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
+
