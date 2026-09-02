@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Stripe Checkout Test</title>
+</head>
+<body>
+
+<button id="checkout">Unfiltered Hearts kaufen – 17,99 €</button>
+
+<script>
+  const productId = 'c8795361-d4b1-40f3-adf3-bac368ace5d0';
+
+  document
+    .getElementById('checkout')
+    .addEventListener('click', async () => {
+
+      const response = await fetch(
+        'https://laurachristina-shop.vercel.app/api/create-checkout-session',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            product_id: productId,
+            quantity: 1
+          })
+        }
+      );
+
+      const data = await response.json();
+
+      console.log(data);
+
+      if (data.checkout_url) {
+        window.location.href = data.checkout_url;
+      } else {
+        alert(data.message || 'Fehler beim Checkout');
+      }
+    });
+</script>
+
+</body>
+</html>
