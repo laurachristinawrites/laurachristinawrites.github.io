@@ -8,7 +8,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-const allowedOrigin = 'https://laurachristinawrites.github.io';
+const allowedOrigin = 'https://laurachristina.com';
 
 export default async function handler(req, res) {
 
