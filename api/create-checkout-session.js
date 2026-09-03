@@ -47,7 +47,7 @@ export default async function handler(req, res) {
       });
     }
 
-    // Produkt aus Supabase laden
+    // Produkt direkt aus Supabase laden
     const { data: product, error: productError } = await supabase
       .from('product')
       .select(
@@ -64,9 +64,18 @@ export default async function handler(req, res) {
       });
     }
 
-    // Stripe Checkout Session
+    // Stripe Checkout Session erstellen
     const session = await stripe.checkout.sessions.create({
+
       mode: 'payment',
+
+      // E-Mail-Adresse des Kunden erfassen
+      customer_creation: 'always',
+
+      // Lieferadresse erfassen
+      shipping_address_collection: {
+        allowed_countries: ['AT', 'DE']
+      },
 
       line_items: [
         {
@@ -88,13 +97,14 @@ export default async function handler(req, res) {
       ],
 
       success_url:
-        'https://laurachristinawrites.github.io/?success=true',
+        'https://laurachristina.com/?success=true',
 
       cancel_url:
-        'https://laurachristinawrites.github.io/?cancelled=true',
+        'https://laurachristina.com/?cancelled=true',
 
       metadata: {
-        product_id: product.product_id
+        product_id: product.product_id,
+        quantity: String(quantity)
       }
     });
 
@@ -104,7 +114,7 @@ export default async function handler(req, res) {
     });
 
   } catch (error) {
-    console.error(error);
+    console.error('Checkout Fehler:', error);
 
     return res.status(500).json({
       success: false,
