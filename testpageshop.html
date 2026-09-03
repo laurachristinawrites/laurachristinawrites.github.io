@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -9,6 +10,7 @@
   <link rel="icon" type="image/png" href="favicon.png">
 
   <!-- Schriften -->
+
   <link href="https://fonts.cdnfonts.com/css/amsterdam-four" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,55 +27,60 @@
 
 <header class="header">
 
-  <a href="#startseite" class="logo">
+  <a href="index.html" class="logo">
     Laura Christina
   </a>
 
   <nav class="navigation">
 
-    <a href="#startseite">Startseite</a>
-    <a href="#buecher">Bücher</a>
-    <a href="#shop">Shop</a>
-    <a href="#ueber-uns">Über uns</a>
-    <a href="#kontakt">Kontakt</a>
+```
+<a href="index.html">Startseite</a>
+<a href="#buecher">Bücher</a>
+<a href="shop.html">Shop</a>
+<a href="#ueber-uns">Über uns</a>
+<a href="#kontakt">Kontakt</a>
+```
 
   </nav>
 
-  <button class="cart-button" onclick="openCart()">
+  <a href="shop.html" class="cart-button">
     Warenkorb
     <span id="cart-count">0</span>
-  </button>
+  </a>
 
 </header>
 
+<!-- ================= BANNER ================= -->
 
-<!-- ================= HERO ================= -->
+<section class="hero-banner" id="startseite">
 
-<section class="hero" id="startseite">
+  <div class="hero-banner-image">
 
-  <div class="hero-overlay"></div>
+```
+<img
+  src="LauraChristina_Autorenfoto-min.JPEG"
+  alt="Laura Christina"
+>
+```
 
-  <div class="hero-content">
+  </div>
 
-    <p class="eyebrow">Laura Christina</p>
+  <div class="hero-banner-overlay"></div>
 
-    <h1>
-      Geschichten, die<br>
-      <em>Herzen</em> höherschlagen lassen.
-    </h1>
+  <div class="hero-banner-content">
 
-    <p class="hero-text">
-      RomComs mit Herz, Humor und einer guten Portion Chaos.
-    </p>
+```
+<p class="eyebrow">Laura Christina</p>
 
-    <a href="#shop" class="button button-rose">
-      Zum Shop
-    </a>
+<h1>
+  Geschichten zwischen<br>
+  <em>Herz &amp; Chaos.</em>
+</h1>
+```
 
   </div>
 
 </section>
-
 
 <!-- ================= INTRO ================= -->
 
@@ -81,27 +88,38 @@
 
   <div class="intro-title">
 
-    <p class="eyebrow">Unsere Geschichten</p>
+```
+<p class="eyebrow">
+  Schön, dass du hier bist
+</p>
 
-    <h2>
-      Zwischen Herzklopfen<br>
-      und Happy End.
-    </h2>
+<h2>
+  Wir schreiben Geschichten,
+  <br>
+  die nach Happy End schmecken.
+</h2>
+```
 
   </div>
 
   <div class="intro-text">
 
-    <p>
-      Wir schreiben romantische Geschichten über starke Frauen,
-      charmante Männer und die kleinen Katastrophen, die passieren,
-      wenn Liebe plötzlich nicht nach Plan läuft.
-    </p>
+```
+<p>
+  Wir sind Laura und Christina und schreiben gemeinsam
+  romantische Geschichten über starke Frauen, charmante Männer
+  und die kleinen Katastrophen, die passieren, wenn Liebe
+  plötzlich nicht nach Plan läuft.
+</p>
+
+<a href="#ueber-uns" class="text-button">
+  Mehr über uns →
+</a>
+```
 
   </div>
 
 </section>
-
 
 <!-- ================= BÜCHER ================= -->
 
@@ -109,216 +127,104 @@
 
   <div class="section-heading">
 
-    <p class="eyebrow">Bücher</p>
+```
+<p class="eyebrow">
+  Bücher
+</p>
 
-    <h2>
-      Geschichten zum<br>
-      Verlieben.
-    </h2>
+<h2>
+  Unsere erste<br>
+  Geschichte.
+</h2>
+```
 
   </div>
 
   <div class="book-preview">
 
-    <div class="book-preview-image">
-      <img src="UnfilteredHearts-cover.png" alt="Unfiltered Hearts">
-    </div>
+```
+<div class="book-preview-image">
 
-    <div class="book-preview-content">
+  <img
+    src="UnfilteredHearts-cover.png"
+    alt="Cover von Unfiltered Hearts"
+  >
 
-      <p class="eyebrow">Debütroman</p>
-
-      <h3>Unfiltered Hearts</h3>
-
-      <p>
-        Zwei Menschen, die auf dem Papier überhaupt nicht
-        zusammenpassen. Und eine Geschichte, die beweist,
-        dass man Liebe manchmal nicht planen kann.
-      </p>
-
-      <p class="coming-soon">
-        Coming Soon
-      </p>
-
-      <a href="#shop" class="text-button">
-        Zum Shop →
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
+</div>
 
 
-<!-- ================= SHOP ================= -->
+<div class="book-preview-content">
 
-<section class="shop-section" id="shop">
+  <p class="eyebrow">
+    Debütroman
+  </p>
 
-  <div class="section-heading">
+  <h3>
+    Unfiltered Hearts
+  </h3>
 
-    <p class="eyebrow">Unser Shop</p>
+  <p>
+    Zwei Menschen, die auf dem Papier überhaupt nicht
+    zusammenpassen. Und eine Geschichte, die beweist,
+    dass man Liebe manchmal nicht planen kann.
+  </p>
 
-    <h2>
-      Ein Stück<br>
-      Laura Christina.
-    </h2>
+  <p class="coming-soon">
+    Coming Soon
+  </p>
 
-    <p class="section-description">
-      Bücher, besondere Ausgaben und kleine Dinge
-      für alle, die Geschichten genauso lieben wie wir.
-    </p>
+  <a href="shop.html" class="text-button">
+    Zum Shop →
+  </a>
 
-  </div>
-
-
-  <div class="products">
-
-    <!-- PRODUKT -->
-
-    <article class="product-card">
-
-      <div class="product-image">
-
-        <img
-          src="UnfilteredHearts-cover.png"
-          alt="Unfiltered Hearts"
-        >
-
-        <span class="product-label">
-          Neu
-        </span>
-
-      </div>
-
-      <div class="product-content">
-
-        <p class="product-category">
-          Buch
-        </p>
-
-        <h3>
-          Unfiltered Hearts
-        </h3>
-
-        <p class="product-description">
-          Unser Debütroman – eine RomCom voller
-          Herz, Humor und Chaos.
-        </p>
-
-        <div class="product-bottom">
-
-          <span class="price">
-            € 14,90
-          </span>
-
-          <button
-            class="add-to-cart"
-            onclick="addToCart('wrong-on-paper')"
-          >
-            In den Warenkorb
-          </button>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- ZWEITES PRODUKT – später aktivieren -->
-
-    <!--
-
-    <article class="product-card">
-
-      <div class="product-image">
-        <img src="produkt.jpg" alt="Produkt">
-      </div>
-
-      <div class="product-content">
-
-        <p class="product-category">
-          Special Edition
-        </p>
-
-        <h3>
-          Unfiltered Hearts
-        </h3>
-
-        <p class="product-description">
-          Special Edition mit Farbschnitt.
-        </p>
-
-        <div class="product-bottom">
-
-          <span class="price">
-            € 24,90
-          </span>
-
-          <button
-            class="add-to-cart"
-            onclick="addToCart('special-edition')"
-          >
-            In den Warenkorb
-          </button>
-
-        </div>
-
-      </div>
-
-    </article>
-
-    -->
+</div>
+```
 
   </div>
 
 </section>
 
-
-<!-- ================= ABOUT ================= -->
+<!-- ================= ABOUT TEASER ================= -->
 
 <section class="about-section" id="ueber-uns">
 
   <div class="about-card">
 
-    <div class="about-content">
+```
+<div class="about-content">
 
-      <p class="eyebrow">
-        Über uns
-      </p>
+  <p class="eyebrow">
+    Über uns
+  </p>
 
-      <h2>
-        Zwei Freundinnen.<br>
-        Eine gemeinsame Leidenschaft.
-      </h2>
+  <h2>
+    Zwei Freundinnen.<br>
+    Eine gemeinsame Leidenschaft.
+  </h2>
 
-      <p>
-        Laura und Christina haben sich während
-        ihres Studiums in Graz kennengelernt und schnell festgestellt,
-        dass sie nicht nur die Liebe zu guten Geschichten verbindet,
-        sondern auch der Wunsch, selbst welche zu erzählen.
-      </p>
+  <p>
+    Laura und Christina haben sich während ihres Studiums
+    in Graz kennengelernt und schnell festgestellt, dass
+    sie nicht nur die Liebe zu guten Geschichten verbindet,
+    sondern auch der Wunsch, selbst welche zu erzählen.
+  </p>
 
-      <p>
-        Aus gemeinsamen Leserunden wurde die Idee geboren,
-        ein eigenes Buch zu schreiben – als kreativer Ausgleich
-        zum Alltag und als schöner Anlass, sich regelmäßig zu treffen.
-      </p>
+  <p>
+    Aus gemeinsamen Leserunden wurde die Idee geboren,
+    ein eigenes Buch zu schreiben – als kreativer Ausgleich
+    zum Alltag und als schöner Anlass, sich regelmäßig zu treffen.
+  </p>
 
-      <p>
-        Unter dem Pseudonym <strong>Laura Christina</strong> schreiben
-        sie gemeinsam RomComs, mit denen sie ihre Leserinnen und
-        Leser in authentische, herzerwärmende und humorvolle
-        Geschichten entführen möchten.
-      </p>
+  <a href="#kontakt" class="text-button">
+    Kontakt aufnehmen →
+  </a>
 
-    </div>
+</div>
+```
 
   </div>
 
 </section>
-
 
 <!-- ================= CONTACT ================= -->
 
@@ -336,15 +242,19 @@
     Fragen, Feedback oder einfach ein Hallo?
   </p>
 
-  <a
-    href="mailto:post@laurachristina.com"
-    class="contact-email"
-  >
-    post@laurachristina.com
+<a
+href="mailto:post@laurachristina.com"
+class="contact-email"
+
+>
+
+```
+post@laurachristina.com
+```
+
   </a>
 
 </section>
-
 
 <!-- ================= INSTAGRAM ================= -->
 
@@ -352,13 +262,15 @@
 
   <div class="section-heading">
 
-    <p class="eyebrow">
-      Instagram
-    </p>
+```
+<p class="eyebrow">
+  Instagram
+</p>
 
-    <h2>
-      Hinter den Kulissen.
-    </h2>
+<h2>
+  Hinter den Kulissen.
+</h2>
+```
 
   </div>
 
@@ -370,7 +282,6 @@
 
 </section>
 
-
 <!-- ================= FOOTER ================= -->
 
 <footer>
@@ -381,83 +292,16 @@
 
   <div class="footer-links">
 
-    <a href="#">Impressum</a>
-    <a href="#">Datenschutz</a>
+```
+<a href="#">Impressum</a>
+<a href="#">Datenschutz</a>
+```
 
   </div>
 
 </footer>
 
-
-<!-- ================= WARENKORB ================= -->
-
-<div
-  class="cart-overlay"
-  id="cart-overlay"
-  onclick="closeCart()"
-></div>
-
-
-<aside
-  class="cart-drawer"
-  id="cart-drawer"
->
-
-  <div class="cart-header">
-
-    <h2>
-      Warenkorb
-    </h2>
-
-    <button
-      onclick="closeCart()"
-      class="close-cart"
-    >
-      ×
-    </button>
-
-  </div>
-
-
-  <div
-    class="cart-items"
-    id="cart-items"
-  >
-  </div>
-
-
-  <div class="cart-footer">
-
-    <div class="cart-total">
-
-      <span>
-        Gesamt
-      </span>
-
-      <strong id="cart-total">
-        € 0,00
-      </strong>
-
-    </div>
-
-    <button
-      class="checkout-button"
-      onclick="checkout()"
-    >
-      Zur Kasse
-    </button>
-
-    <p class="checkout-note">
-      Sichere Zahlung über Stripe
-    </p>
-
-  </div>
-
-</aside>
-
-
 <script src="app.js"></script>
 
 </body>
 </html>
-
