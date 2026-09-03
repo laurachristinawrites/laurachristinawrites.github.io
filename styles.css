@@ -279,108 +279,54 @@ HERO
 ========================================= */
 
 .hero {
-
-position: relative;
-
-min-height: 68vh;
-
-display: grid;
-
-place-items: center;
-
-text-align: center;
-
-background:
-
-```
-url("LauraChristina_Autorenfoto-min.JPEG")
-
-center 40%
-
-/ cover
-
-no-repeat;
-```
-
+  position: relative;
+  height: 25vh;
+  min-height: 220px;
+  max-height: 300px;
+  background-image: url("LauraChristina_Autorenfoto-min.JPEG");
+  background-size: cover;
+  background-position: center 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .hero-overlay {
-
-position: absolute;
-
-inset: 0;
-
-background:
-
-```
-linear-gradient(
-  90deg,
-  rgba(25, 55, 47, 0.72),
-  rgba(40, 72, 61, 0.25)
-);
-```
-
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 55, 47, 0.28);
 }
 
 .hero-content {
-
-position: relative;
-
-z-index: 1;
-
-color: white;
-
-max-width: 850px;
-
-padding:
-80px
-25px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 20px;
 }
 
-.hero .eyebrow {
-
-color: var(--rose-light);
+.hero-content .eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
-.hero h1 {
-
-margin: 0;
-
-font-family:
-"Playfair Display",
-Georgia,
-serif;
-
-font-size:
-clamp(3rem, 6vw, 5.5rem);
-
-line-height: 0.98;
-
-font-weight: 500;
-
-letter-spacing: -0.025em;
+.hero-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 10px;
 }
 
-.hero h1 em {
-
-color: var(--rose-light);
-
-font-style: italic;
+.hero-content h1 em {
+  color: var(--rose-light);
 }
 
 .hero-text {
-
-max-width: 550px;
-
-margin:
-28px
-auto
-32px;
-
-font-size: 1.08rem;
-
-color:
-rgba(255,255,255,0.92);
+  font-size: 0.95rem;
+  margin-bottom: 18px;
 }
 
 /* =========================================
