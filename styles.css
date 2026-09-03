@@ -108,10 +108,10 @@ LOGO
 
 
 @font-face {
-font-family: "Mistrully";
-src: url("/fonts/amsterdam-four.ttf") format("ttf");
-font-weight: normal;
-font-style: normal;
+  font-family: "Amsterdam Four";
+  src: url("font/amsterdam-four.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 
@@ -119,10 +119,7 @@ font-style: normal;
 
 color: var(--green);
 
-font-family:
-"Mistrully",
-"Amsterdam Four",
-cursive;
+font-family: "Amsterdam Four", cursive;
 
 font-size: 2.35rem;
 
