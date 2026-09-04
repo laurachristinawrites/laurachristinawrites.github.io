@@ -7,43 +7,43 @@ PRODUKTE
 ========================================= */
 
 const products = {
-
 "unfiltered-hearts": {
-
- 
 id: "unfiltered-hearts",
-
 name: "Unfiltered Hearts",
-
 price: 17.99,
-
 image: "./UnfilteredHearts-cover.png"
- 
-
 }
-
 };
 
 /* =========================================
 WARENKORB
 ========================================= */
 
-let cart =
-JSON.parse(
-localStorage.getItem("lauraChristinaCart")
-) || [];
+const STORAGE_KEY = "lauraChristinaCart";
+
+let shoppingCart = [];
+
+try {
+shoppingCart =
+JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+if (!Array.isArray(shoppingCart)) {
+shoppingCart = [];
+}
+} catch (error) {
+console.error("Warenkorb konnte nicht geladen werden:", error);
+shoppingCart = [];
+}
 
 /* =========================================
 WARENKORB SPEICHERN
 ========================================= */
 
 function saveCart() {
-
 localStorage.setItem(
-"lauraChristinaCart",
-JSON.stringify(cart)
+STORAGE_KEY,
+JSON.stringify(shoppingCart)
 );
-
 }
 
 /* =========================================
@@ -51,97 +51,55 @@ PRODUKT HINZUFÜGEN
 ========================================= */
 
 function addToCart(productId) {
-
 const product = products[productId];
 
 if (!product) {
-
- 
-console.error(
-  "Produkt nicht gefunden:",
-  productId
-);
-
+console.error("Produkt nicht gefunden:", productId);
 return;
- 
-
 }
 
 const existingProduct =
-cart.find(
-item =>
-item.id === productId
-);
+shoppingCart.find(item => item.id === productId);
 
 if (existingProduct) {
-
- 
 existingProduct.quantity++;
- 
-
 } else {
-
- 
-cart.push({
-
-  id: productId,
-
-  quantity: 1
-
+shoppingCart.push({
+id: productId,
+quantity: 1
 });
- 
-
 }
 
 saveCart();
-
 updateCart();
 
-/*
-Kein Drawer mehr:
-Der Nutzer sieht die aktualisierte
-Anzahl oben rechts.
-*/
-
+console.log(
+`${product.name} wurde zum Warenkorb hinzugefügt.`
+);
 }
 
 /* =========================================
 MENGE ÄNDERN
 ========================================= */
 
-function changeQuantity(
-productId,
-amount
-) {
-
+function changeQuantity(productId, amount) {
 const item =
-cart.find(
-item =>
-item.id === productId
-);
+shoppingCart.find(item => item.id === productId);
 
 if (!item) return;
 
 item.quantity += amount;
 
 if (item.quantity <= 0) {
-
- 
-cart =
-  cart.filter(
-    item =>
-      item.id !== productId
-  );
- 
-
+shoppingCart =
+shoppingCart.filter(
+item => item.id !== productId
+);
 }
 
 saveCart();
-
 updateCart();
-
 renderCartPage();
-
 }
 
 /* =========================================
@@ -149,110 +107,67 @@ PRODUKT ENTFERNEN
 ========================================= */
 
 function removeFromCart(productId) {
-
-cart =
-cart.filter(
-item =>
-item.id !== productId
+shoppingCart =
+shoppingCart.filter(
+item => item.id !== productId
 );
 
 saveCart();
-
 updateCart();
-
 renderCartPage();
-
 }
 
 /* =========================================
-WARENKORB AKTUALISIEREN
+WARENKORB-ANZAHL AKTUALISIEREN
 ========================================= */
 
 function updateCart() {
-
 const cartCount =
-document.getElementById(
-"cart-count"
-);
+document.getElementById("cart-count");
 
 if (!cartCount) return;
 
 let quantityTotal = 0;
 
-cart.forEach(item => {
-
- 
-quantityTotal +=
-  item.quantity;
- 
-
+shoppingCart.forEach(item => {
+quantityTotal += item.quantity;
 });
 
-cartCount.textContent =
-quantityTotal;
-
+cartCount.textContent = quantityTotal;
 }
 
 /* =========================================
-WARENKORB SEITE ÖFFNEN
+WARENKORB-SEITE ÖFFNEN
 ========================================= */
 
 function openCart() {
-
-window.location.href =
-"warenkorb.html";
-
+window.location.href = "warenkorb.html";
 }
 
 /* =========================================
-CART SEITE RENDERN
+WARENKORB-SEITE RENDERN
 ========================================= */
 
 function renderCartPage() {
-
 const cartItems =
-document.getElementById(
-"cart-page-items"
-);
+document.getElementById("cart-page-items");
 
 const cartTotal =
-document.getElementById(
-"cart-page-total"
-);
+document.getElementById("cart-page-total");
 
 if (!cartItems || !cartTotal) return;
 
 let total = 0;
 
-if (cart.length === 0) {
+if (shoppingCart.length === 0) {
+cartItems.innerHTML = `       <div class="empty-cart">         <h2>Dein Warenkorb ist leer.</h2>         <p>
+          Vielleicht ist das richtige Buch
+          ja nur einen Klick entfernt.         </p>         <a href="shop.html" class="continue-shopping">
+          Zum Shop         </a>       </div>
+    `;
 
  
-cartItems.innerHTML = `
-
-  <div class="empty-cart">
-
-    <h2>Dein Warenkorb ist leer.</h2>
-
-    <p>
-      Vielleicht ist das richtige Buch
-      ja nur einen Klick entfernt.
-    </p>
-
-    <a
-      href="shop.html"
-      class="continue-shopping"
-    >
-      Zum Shop
-    </a>
-
-  </div>
-
-`;
-
-
-cartTotal.textContent =
-  "€ 0,00";
-
+cartTotal.textContent = "€ 0,00";
 
 return;
  
@@ -260,26 +175,19 @@ return;
 }
 
 cartItems.innerHTML =
-cart.map(item => {
+shoppingCart.map(item => {
 
  
-  const product =
-    products[item.id];
-
+  const product = products[item.id];
 
   if (!product) return "";
 
-
   const itemTotal =
-    product.price *
-    item.quantity;
-
+    product.price * item.quantity;
 
   total += itemTotal;
 
-
   return `
-
     <div class="cart-page-item">
 
       <div class="cart-page-product">
@@ -291,13 +199,9 @@ cart.map(item => {
 
         <div class="cart-page-product-info">
 
-          <h2>
-            ${product.name}
-          </h2>
+          <h2>${product.name}</h2>
 
-          <p>
-            Taschenbuch
-          </p>
+          <p>Taschenbuch</p>
 
           <span class="cart-page-price">
             € ${product.price
@@ -314,12 +218,7 @@ cart.map(item => {
 
         <button
           type="button"
-          onclick="
-            changeQuantity(
-              '${product.id}',
-              -1
-            )
-          "
+          onclick="changeQuantity('${product.id}', -1)"
         >
           −
         </button>
@@ -330,12 +229,7 @@ cart.map(item => {
 
         <button
           type="button"
-          onclick="
-            changeQuantity(
-              '${product.id}',
-              1
-            )
-          "
+          onclick="changeQuantity('${product.id}', 1)"
         >
           +
         </button>
@@ -344,28 +238,21 @@ cart.map(item => {
 
 
       <div class="cart-page-item-total">
-
         € ${itemTotal
           .toFixed(2)
           .replace(".", ",")}
-
       </div>
 
 
       <button
         type="button"
         class="cart-page-remove"
-        onclick="
-          removeFromCart(
-            '${product.id}'
-          )
-        "
+        onclick="removeFromCart('${product.id}')"
       >
         Entfernen
       </button>
 
     </div>
-
   `;
 
 }).join("");
@@ -373,10 +260,7 @@ cart.map(item => {
 
 cartTotal.textContent =
 "€ " +
-total
-.toFixed(2)
-.replace(".", ",");
-
+total.toFixed(2).replace(".", ",");
 }
 
 /* =========================================
@@ -385,119 +269,37 @@ CHECKOUT
 
 function checkout() {
 
-if (cart.length === 0) {
-
- 
-alert(
-  "Dein Warenkorb ist noch leer."
-);
-
+if (shoppingCart.length === 0) {
+alert("Dein Warenkorb ist noch leer.");
 return;
- 
-
 }
-
-/*
-STRIPE KOMMT HIER IN SCHRITT 3.
-
- 
-Der Stripe Secret Key darf NICHT
-im Browser stehen.
-
-Später wird hier dein Backend
-/api/create-checkout-session
-aufgerufen.
- 
-
-*/
 
 alert(
 "Der Stripe-Checkout wird im nächsten Schritt aktiviert."
 );
-
 }
 
 /* =========================================
 PRODUKTBILDER
 ========================================= */
 
-function changeProductImage(
-button,
-imagePath
-) {
+function changeProductImage(button, imagePath) {
 
 const mainImage =
-document.getElementById(
-"main-product-image"
-);
+document.getElementById("main-product-image");
 
 if (!mainImage) return;
 
-mainImage.src =
-imagePath;
+mainImage.src = imagePath;
 
 document
-.querySelectorAll(
-".gallery-thumb"
-)
-.forEach(
-thumb => {
+.querySelectorAll(".gallery-thumb")
+.forEach(thumb => {
+thumb.classList.remove("active");
+});
 
- 
-    thumb.classList.remove(
-      "active"
-    );
-
-  }
-);
- 
-
-button.classList.add(
-"active"
-);
-
+button.classList.add("active");
 }
-
-/* =========================================
-INITIALISIERUNG
-========================================= */
-
-document.addEventListener(
-"DOMContentLoaded",
-() => {
-
- 
-updateCart();
-
-renderCartPage();
- 
-
-}
-);
-
-/* =========================================
-ESC
-========================================= */
-
-document.addEventListener(
-"keydown",
-event => {
-
- 
-if (
-  event.key === "Escape"
-) {
-
-  /*
-    Auf der neuen Warenkorb-Seite
-    gibt es keinen Drawer mehr.
-  */
-
-}
- 
-
-}
-);
 
 /* =========================================
 INSTAGRAM
@@ -511,3 +313,30 @@ angeschlossen.
 */
 
 }
+
+/* =========================================
+FUNKTIONEN GLOBAL VERFÜGBAR MACHEN
+========================================= */
+
+window.addToCart = addToCart;
+window.changeQuantity = changeQuantity;
+window.removeFromCart = removeFromCart;
+window.openCart = openCart;
+window.checkout = checkout;
+window.changeProductImage = changeProductImage;
+
+/* =========================================
+INITIALISIERUNG
+========================================= */
+
+document.addEventListener(
+"DOMContentLoaded",
+() => {
+
+ 
+updateCart();
+renderCartPage();
+ 
+
+}
+);
