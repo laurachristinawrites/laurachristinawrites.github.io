@@ -267,12 +267,12 @@ HERO
   object-fit: cover;
   object-position: center 40%;
 }
-
+/*
 .hero-banner-overlay {
   position: absolute;
   inset: 0;
   background: rgba(25, 55, 47, 0.28);
-}
+}*/
 
 .hero-banner-content {
   position: relative;
