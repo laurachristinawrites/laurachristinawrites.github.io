@@ -1442,12 +1442,12 @@ font-size: clamp(2.8rem, 12vw, 4rem);
 .shop-product {
 grid-template-columns: 1fr;
 
-```
+ 
 gap: 55px;
 
 padding-top: 45px;
 padding-bottom: 80px;
-```
+ 
 
 }
 
@@ -1458,9 +1458,9 @@ width: min(80%, 350px);
 .shop-product-info {
 max-width: none;
 
-```
+ 
 text-align: center;
-```
+ 
 
 }
 
@@ -1475,11 +1475,11 @@ justify-content: center;
 .shop-info {
 grid-template-columns: 1fr;
 
-```
+ 
 gap: 45px;
 
 padding: 70px 6vw;
-```
+ 
 
 }
 
