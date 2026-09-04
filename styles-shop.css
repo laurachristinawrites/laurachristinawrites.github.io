@@ -863,3 +863,361 @@ max-width: 280px;
 
 }
 }
+
+
+/* =========================================
+WARENKORB SEITE
+========================================= */
+
+.cart-page {
+width: 100%;
+max-width: 1080px;
+
+margin: 0 auto;
+
+padding: 80px 40px 110px;
+}
+
+.cart-page-heading {
+margin-bottom: 55px;
+}
+
+.cart-page-heading h1 {
+margin: 0;
+
+color: var(--green);
+
+font-family: "Playfair Display", Georgia, serif;
+
+font-size: clamp(3.2rem, 5vw, 5rem);
+
+font-weight: 400;
+
+line-height: 1;
+letter-spacing: -0.04em;
+}
+
+/* =========================================
+CART ITEMS
+========================================= */
+
+.cart-page-items {
+border-top: 1px solid var(--border);
+}
+
+.cart-page-item {
+display: grid;
+
+grid-template-columns: minmax(300px, 1fr) auto auto auto;
+
+align-items: center;
+
+gap: 35px;
+
+padding: 25px 0;
+
+border-bottom: 1px solid var(--border);
+}
+
+.cart-page-product {
+display: flex;
+
+align-items: center;
+
+gap: 22px;
+}
+
+.cart-page-product img {
+display: block;
+
+width: 82px;
+height: 120px;
+
+object-fit: cover;
+
+box-shadow: 0 8px 20px rgba(44, 39, 34, 0.12);
+}
+
+.cart-page-product-info h2 {
+margin: 0 0 4px;
+
+color: var(--green);
+
+font-family: "Playfair Display", Georgia, serif;
+
+font-size: 1.45rem;
+
+font-weight: 500;
+}
+
+.cart-page-product-info p {
+margin: 0 0 10px;
+
+color: var(--muted);
+
+font-size: 0.78rem;
+}
+
+.cart-page-price {
+color: var(--brown);
+
+font-size: 0.85rem;
+}
+
+/* =========================================
+QUANTITY
+========================================= */
+
+.cart-page-quantity {
+display: flex;
+
+align-items: center;
+
+gap: 12px;
+
+border: 1px solid var(--border);
+
+padding: 4px;
+}
+
+.cart-page-quantity button {
+width: 30px;
+height: 30px;
+
+border: none;
+
+background: none;
+
+color: var(--green);
+
+font-size: 1.1rem;
+
+cursor: pointer;
+}
+
+.cart-page-quantity span {
+min-width: 20px;
+
+text-align: center;
+
+color: var(--brown);
+
+font-size: 0.85rem;
+}
+
+/* =========================================
+ITEM TOTAL
+========================================= */
+
+.cart-page-item-total {
+min-width: 80px;
+
+color: var(--green);
+
+font-family: "Playfair Display", Georgia, serif;
+
+font-size: 1.1rem;
+
+text-align: right;
+}
+
+/* =========================================
+REMOVE
+========================================= */
+
+.cart-page-remove {
+border: none;
+
+padding: 0;
+
+background: none;
+
+color: var(--muted);
+
+font-family: "DM Sans", sans-serif;
+
+font-size: 0.72rem;
+
+cursor: pointer;
+
+text-decoration: underline;
+}
+
+.cart-page-remove:hover {
+color: var(--green);
+}
+
+/* =========================================
+SUMMARY
+========================================= */
+
+.cart-page-summary {
+width: 360px;
+
+margin: 45px 0 0 auto;
+}
+
+.cart-page-summary-row {
+display: flex;
+
+justify-content: space-between;
+
+align-items: baseline;
+
+padding-bottom: 20px;
+
+margin-bottom: 20px;
+
+border-bottom: 1px solid var(--border);
+}
+
+.cart-page-summary-row span {
+color: var(--muted);
+
+font-size: 0.9rem;
+}
+
+.cart-page-summary-row strong {
+color: var(--green);
+
+font-family: "Playfair Display", Georgia, serif;
+
+font-size: 1.7rem;
+
+font-weight: 500;
+}
+
+.cart-page-summary .checkout-button {
+width: 100%;
+
+border: none;
+
+padding: 16px;
+
+background: var(--green);
+
+color: var(--white);
+
+font-family: "DM Sans", sans-serif;
+
+font-size: 0.88rem;
+
+font-weight: 600;
+
+cursor: pointer;
+
+transition: background 0.2s ease;
+}
+
+.cart-page-summary .checkout-button:hover {
+background: var(--green-dark);
+}
+
+.back-to-shop {
+display: block;
+
+margin-top: 18px;
+
+color: var(--muted);
+
+font-size: 0.75rem;
+
+text-align: center;
+}
+
+.back-to-shop:hover {
+color: var(--green);
+}
+
+/* =========================================
+EMPTY CART
+========================================= */
+
+.empty-cart {
+padding: 75px 20px;
+
+border-bottom: 1px solid var(--border);
+
+text-align: center;
+}
+
+.empty-cart h2 {
+margin: 0 0 10px;
+
+color: var(--green);
+
+font-family: "Playfair Display", Georgia, serif;
+
+font-size: 2rem;
+
+font-weight: 400;
+}
+
+.empty-cart p {
+margin: 0 auto 25px;
+
+color: var(--muted);
+
+font-size: 0.9rem;
+}
+
+.continue-shopping {
+display: inline-block;
+
+padding: 12px 22px;
+
+background: var(--green);
+
+color: var(--white);
+
+font-size: 0.8rem;
+
+font-weight: 600;
+}
+
+/* =========================================
+MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+.cart-page {
+padding: 55px 6vw 80px;
+}
+
+.cart-page-heading {
+margin-bottom: 40px;
+}
+
+.cart-page-item {
+grid-template-columns: 1fr auto;
+
+ 
+gap: 18px;
+ 
+
+}
+
+.cart-page-product {
+grid-column: 1 / -1;
+}
+
+.cart-page-item-total {
+text-align: left;
+}
+
+.cart-page-remove {
+justify-self: end;
+}
+
+.cart-page-summary {
+width: 100%;
+
+ 
+margin-top: 35px;
+ 
+
+}
+
+}
+
