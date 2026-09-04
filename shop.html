@@ -7,175 +7,154 @@
 
   <title>Shop | Laura Christina</title>
 
-  <link rel="stylesheet" href="styles.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<header class="header">
+  <header class="header">
+    <a href="index.html" class="logo">Laura Christina</a>
 
-  <a href="index.html" class="logo">
-    Laura Christina
-  </a>
+ 
+<nav class="navigation">
+  <a href="index.html">Startseite</a>
+  <a href="index.html#buecher">Bücher</a>
+  <a href="shop.html" class="active">Shop</a>
+  <a href="index.html#ueber-uns">Über uns</a>
+  <a href="index.html#kontakt">Kontakt</a>
+</nav>
 
-  <nav class="navigation">
-    <a href="index.html">Startseite</a>
-    <a href="index.html#buecher">Bücher</a>
-    <a href="shop.html">Shop</a>
-    <a href="index.html#ueber-uns">Über uns</a>
-    <a href="index.html#kontakt">Kontakt</a>
-  </nav>
+<button class="cart-button" onclick="openCart()">
+  Warenkorb <span id="cart-count">0</span>
+</button>
+ 
 
-  <button class="cart-button" onclick="openCart()">
-    Warenkorb <span id="cart-count">0</span>
+  </header>
+
+  <main class="shop-page">
+
+ 
+<section class="shop-product">
+
+  <div class="shop-cover-wrap">
+    <img
+      src="./UnfilteredHearts-cover.png"
+      alt="Cover von Unfiltered Hearts"
+      class="shop-cover"
+    >
+  </div>
+
+
+  <div class="shop-info">
+
+    <p class="shop-label">Unser erster Roman</p>
+
+    <h1>Unfiltered<br>Hearts</h1>
+
+    <p class="shop-description">
+      Zwei Menschen. Ein Plan. Und ziemlich viele Gründe,
+      warum daraus niemals Liebe werden sollte.
+    </p>
+
+    <div class="shop-purchase">
+      <span class="shop-price">€ 17,99</span>
+
+      <button
+        class="shop-button"
+        onclick="addToCart('unfiltered-hearts')"
+      >
+        In den Warenkorb
+      </button>
+    </div>
+
+    <p class="shop-note">
+      Taschenbuch · Versand innerhalb Österreichs
+    </p>
+
+  </div>
+
+</section>
+
+
+<section class="shop-details">
+
+  <div class="shop-detail">
+    <span class="detail-number">01</span>
+    <div>
+      <h2>Unfiltered Hearts</h2>
+      <p>Eine RomCom über Liebe, Erwartungen und die Dinge, die man nicht planen kann.</p>
+    </div>
+  </div>
+
+  <div class="shop-detail">
+    <span class="detail-number">02</span>
+    <div>
+      <h2>Laura Christina</h2>
+      <p>Geschichten mit Herz, Humor und einer guten Portion Chaos.</p>
+    </div>
+  </div>
+
+</section>
+ 
+
+  </main>
+
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+  <aside class="cart-drawer" id="cart-drawer">
+
+ 
+<div class="cart-header">
+  <h2>Warenkorb</h2>
+
+  <button
+    class="close-cart"
+    onclick="closeCart()"
+    aria-label="Warenkorb schließen"
+  >
+    ×
+  </button>
+</div>
+
+<div class="cart-items" id="cart-items"></div>
+
+<div class="cart-footer">
+
+  <div class="cart-total">
+    <span>Gesamt</span>
+    <strong id="cart-total">€ 0,00</strong>
+  </div>
+
+  <button class="checkout-button" onclick="checkout()">
+    Zur Kasse
   </button>
 
-</header>
-
-<main>
-
-  <section class="shop-page">
-
- 
-<div class="shop-book">
-
-  <div class="shop-cover">
-
-    <div class="cover-inner">
-      <span>LAURA<br>CHRISTINA</span>
-
-      <div class="cover-title">
-        Unfiltered<br>
-        <em>Hearts</em>
-      </div>
-
-      <small>ROMCOM</small>
-    </div>
-
-  </div>
-
-
-  <div class="shop-details">
-
-    <p class="eyebrow">Unser erstes Buch</p>
-
-    <h1>Unfiltered<br><em>Hearts</em></h1>
-
-    <p class="shop-tagline">
-      Liebe ist selten das, was man plant.
-    </p>
-
-    <div class="shop-price">
-      € 17,99
-    </div>
-
-    <button
-      class="shop-add-button"
-      onclick="addToCart('unfiltered-hearts')"
-    >
-      In den Warenkorb
-    </button>
-
-    <p class="shop-shipping">
-      zzgl. Versandkosten · sichere Zahlung über Stripe
-    </p>
-
-  </div>
-
-</div>
-
-
-<div class="shop-bottom">
-
-  <span>Unfiltered Hearts</span>
-
-  <span>Laura Christina</span>
-
-  <span>€ 17,99</span>
+  <p class="checkout-note">
+    Sichere Zahlung über Stripe
+  </p>
 
 </div>
  
 
-  </section>
+  </aside>
 
-</main>
-
-<!-- WARENKORB -->
-
-<div
-  class="cart-overlay"
-  id="cart-overlay"
-  onclick="closeCart()"
-></div>
-
-<aside class="cart-drawer" id="cart-drawer">
-
-  <div class="cart-header">
+  <footer class="footer">
+    <p>© Laura Christina</p>
 
  
-<h2>Warenkorb</h2>
-
-<button
-  class="close-cart"
-  onclick="closeCart()"
-  aria-label="Warenkorb schließen"
->
-  ×
-</button>
- 
-
-  </div>
-
-  <div
-    class="cart-items"
-    id="cart-items"
-  ></div>
-
-  <div class="cart-footer">
-
- 
-<div class="cart-total">
-  <span>Gesamt</span>
-  <strong id="cart-total">€ 0,00</strong>
+<div class="footer-links">
+  <a href="index.html#impressum">Impressum</a>
+  <a href="index.html#datenschutz">Datenschutz</a>
 </div>
-
-<button
-  class="checkout-button"
-  onclick="checkout()"
->
-  Zur Kasse
-</button>
-
-<p class="checkout-note">
-  Sichere Zahlung über Stripe
-</p>
  
 
-  </div>
+  </footer>
 
-</aside>
-
-<footer>
-
-  <div>
-    © 2026 Laura Christina
-  </div>
-
-  <div class="footer-links">
-    <a href="index.html">Startseite</a>
-    <a href="index.html#kontakt">Kontakt</a>
-    <a href="#">Impressum</a>
-    <a href="#">Datenschutz</a>
-  </div>
-
-</footer>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
