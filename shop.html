@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Shop | Laura Christina</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="header">
+
+```
+<a href="index.html" class="logo">
+  Laura Christina
+</a>
+
+<nav class="navigation">
+  <a href="index.html">Startseite</a>
+  <a href="index.html#buecher">Bücher</a>
+  <a href="shop.html">Shop</a>
+  <a href="index.html#ueber-uns">Über uns</a>
+  <a href="index.html#kontakt">Kontakt</a>
+</nav>
+
+<button class="cart-button" onclick="openCart()">
+  Warenkorb
+  <span id="cart-count">0</span>
+</button>
+```
+
+  </header>
+
+  <!-- SHOP HERO -->
+
+  <main>
+
+```
+<section class="shop-page-intro">
+
+  <p class="eyebrow">Laura Christina Shop</p>
+
+  <h1>
+    Geschichten zum<br>
+    <em>Verlieben.</em>
+  </h1>
+
+  <p>
+    Dein Exemplar von <strong>Unfiltered Hearts</strong> –
+    direkt bei uns bestellen.
+  </p>
+
+</section>
+
+
+<!-- PRODUCT -->
+
+<section class="shop-product">
+
+  <div class="shop-product-image">
+
+    <img
+      src="UnfilteredHearts-cover.png"
+      alt="Unfiltered Hearts – Buchcover"
+    >
+
+  </div>
+
+
+  <div class="shop-product-info">
+
+    <p class="eyebrow">
+      Laura Christina
+    </p>
+
+    <h2>
+      Unfiltered Hearts
+    </h2>
+
+    <p class="shop-product-intro">
+      Eine RomCom über Liebe, Erwartungen und die
+      kleinen Dinge, die plötzlich alles verändern.
+    </p>
+
+    <div class="shop-divider"></div>
+
+    <p class="shop-product-description">
+      Ein Buch für alle, die glauben, dass man Liebe
+      nicht planen kann – und vielleicht gerade deshalb
+      am Ende genau dort landet, wo man hingehört.
+    </p>
+
+    <div class="shop-product-details">
+
+      <div>
+        <span>Preis</span>
+        <strong>€ 17,99</strong>
+      </div>
+
+      <div>
+        <span>Versand</span>
+        <strong>zzgl. Versandkosten</strong>
+      </div>
+
+    </div>
+
+    <button
+      class="shop-add-button"
+      onclick="addToCart('unfiltered-hearts')"
+    >
+      In den Warenkorb
+    </button>
+
+    <p class="shop-note">
+      Sicher bezahlen über Stripe.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- SMALL INFO -->
+
+<section class="shop-info">
+
+  <div>
+    <span class="shop-info-number">01</span>
+    <h3>Direkt bei uns</h3>
+    <p>
+      Bestelle dein Exemplar direkt über unseren Shop.
+    </p>
+  </div>
+
+  <div>
+    <span class="shop-info-number">02</span>
+    <h3>Sicher bezahlen</h3>
+    <p>
+      Die Zahlung erfolgt sicher und unkompliziert
+      über Stripe.
+    </p>
+  </div>
+
+  <div>
+    <span class="shop-info-number">03</span>
+    <h3>Mit Liebe verpackt</h3>
+    <p>
+      Dein Buch macht sich anschließend auf den Weg
+      zu dir.
+    </p>
+  </div>
+
+</section>
+```
+
+  </main>
+
+  <!-- WARENKORB -->
+
+  <div
+    class="cart-overlay"
+    id="cart-overlay"
+    onclick="closeCart()"
+  ></div>
+
+  <aside class="cart-drawer" id="cart-drawer">
+
+```
+<div class="cart-header">
+
+  <h2>Warenkorb</h2>
+
+  <button
+    class="close-cart"
+    onclick="closeCart()"
+    aria-label="Warenkorb schließen"
+  >
+    ×
+  </button>
+
+</div>
+
+
+<div
+  class="cart-items"
+  id="cart-items"
+></div>
+
+
+<div class="cart-footer">
+
+  <div class="cart-total">
+
+    <span>Gesamt</span>
+
+    <strong id="cart-total">
+      € 0,00
+    </strong>
+
+  </div>
+
+  <button
+    class="checkout-button"
+    onclick="checkout()"
+  >
+    Zur Kasse
+  </button>
+
+  <p class="checkout-note">
+    Sichere Zahlung über Stripe
+  </p>
+
+</div>
+```
+
+  </aside>
+
+  <footer>
+
+```
+<div>
+  © 2026 Laura Christina
+</div>
+
+<div class="footer-links">
+  <a href="index.html">Startseite</a>
+  <a href="index.html#kontakt">Kontakt</a>
+  <a href="#">Impressum</a>
+  <a href="#">Datenschutz</a>
+</div>
+```
+
+  </footer>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
