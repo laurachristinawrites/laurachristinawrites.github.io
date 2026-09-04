@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+
+  <meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+
+>
+
+  <title>Warenkorb | Laura Christina</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="styles-shop.css"
+  >
+
+</head>
+
+<body>
+
+<header class="header">
+
+<a
+href="index.html"
+class="logo"
+
+>
+
+```
+Laura Christina
+```
+
+  </a>
+
+  <nav class="navigation">
+
+```
+<a href="index.html">
+  Startseite
+</a>
+
+<a href="index.html#buecher">
+  Bücher
+</a>
+
+<a href="shop.html">
+  Shop
+</a>
+
+<a href="index.html#ueber-uns">
+  Über uns
+</a>
+
+<a href="index.html#kontakt">
+  Kontakt
+</a>
+```
+
+  </nav>
+
+<button
+class="cart-button active"
+onclick="openCart()"
+
+>
+
+```
+Warenkorb
+
+<span id="cart-count">
+  0
+</span>
+```
+
+  </button>
+
+</header>
+
+<main class="cart-page">
+
+  <div class="cart-page-heading">
+
+```
+<p class="shop-label">
+  Dein Einkauf
+</p>
+
+<h1>
+  Warenkorb
+</h1>
+```
+
+  </div>
+
+  <div
+    id="cart-page-items"
+    class="cart-page-items"
+  >
+  </div>
+
+  <div class="cart-page-summary">
+
+```
+<div class="cart-page-summary-row">
+
+  <span>
+    Gesamt
+  </span>
+
+  <strong id="cart-page-total">
+    € 0,00
+  </strong>
+
+</div>
+
+
+<button
+  class="checkout-button"
+  onclick="checkout()"
+>
+  Zur Kasse
+</button>
+
+
+<a
+  href="shop.html"
+  class="back-to-shop"
+>
+  ← Weiter einkaufen
+</a>
+```
+
+  </div>
+
+</main>
+
+<footer class="footer">
+
+  <p>
+    © Laura Christina
+  </p>
+
+  <div class="footer-links">
+
+```
+<a href="index.html#impressum">
+  Impressum
+</a>
+
+<a href="index.html#datenschutz">
+  Datenschutz
+</a>
+```
+
+  </div>
+
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
