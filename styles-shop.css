@@ -46,25 +46,42 @@ text-decoration: none;
 HEADER
 ========================= */
 
+/* =========================================
+HEADER
+========================================= */
+
 .header {
-height: 88px;
-padding: 0 6vw;
+position: sticky;
+top: 0;
+z-index: 1000;
+
+min-height: 78px;
+padding: 0 5vw;
+
 display: flex;
 align-items: center;
-justify-content: space-between;
-background: var(--cream);
-border-bottom: 1px solid rgba(81, 73, 65, 0.08);
+gap: 35px;
+
+background: rgba(251, 248, 243, 0.94);
+backdrop-filter: blur(16px);
+
+border-bottom: 1px solid rgba(40, 72, 61, 0.08);
 }
 
+/* =========================================
+LOGO
+========================================= */
+
+
 .logo {
-color: var(--green);
-font-family: "Amsterdam Four", cursive;
-font-size: 2.35rem;
-font-weight: normal;
-line-height: 1;
-text-decoration: none;
-white-space: nowrap;
-letter-spacing: 0.01em;
+  color: var(--green);
+  font-family: "Amsterdam Four", cursive;
+  font-size: 2.35rem;
+  font-weight: normal;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
 }
 
 .navigation {
