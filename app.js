@@ -1,4 +1,4 @@
-```javascript
+ javascript
 /* =========================================
    LAURA CHRISTINA SHOP
 ========================================= */
@@ -427,4 +427,20 @@ document.addEventListener(
 
   }
 );
-```
+
+
+function changeProductImage(button, imagePath) {
+const mainImage = document.getElementById("main-product-image");
+
+if (!mainImage) return;
+
+mainImage.src = imagePath;
+
+document.querySelectorAll(".gallery-thumb").forEach((thumb) => {
+thumb.classList.remove("active");
+});
+
+button.classList.add("active");
+}
+
+ 
