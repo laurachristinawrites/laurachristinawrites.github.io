@@ -1,446 +1,513 @@
- javascript
 /* =========================================
-   LAURA CHRISTINA SHOP
+LAURA CHRISTINA SHOP
 ========================================= */
 
-
 /* =========================================
-   PRODUKTE
+PRODUKTE
 ========================================= */
 
 const products = {
 
-  "wrong-on-paper": {
+"unfiltered-hearts": {
 
-    id: "wrong-on-paper",
+ 
+id: "unfiltered-hearts",
 
-    name: "Wrong on Paper",
+name: "Unfiltered Hearts",
 
-    price: 14.90
+price: 17.99,
 
-  }
+image: "./UnfilteredHearts-cover.png"
+ 
+
+}
 
 };
 
-
 /* =========================================
-   WARENKORB
+WARENKORB
 ========================================= */
 
 let cart =
-  JSON.parse(
-    localStorage.getItem("lauraChristinaCart")
-  ) || [];
-
+JSON.parse(
+localStorage.getItem("lauraChristinaCart")
+) || [];
 
 /* =========================================
-   WARENKORB SPEICHERN
+WARENKORB SPEICHERN
 ========================================= */
 
 function saveCart() {
 
-  localStorage.setItem(
-    "lauraChristinaCart",
-    JSON.stringify(cart)
-  );
+localStorage.setItem(
+"lauraChristinaCart",
+JSON.stringify(cart)
+);
 
 }
 
-
 /* =========================================
-   PRODUKT HINZUFÜGEN
+PRODUKT HINZUFÜGEN
 ========================================= */
 
 function addToCart(productId) {
 
-  const existingProduct =
-    cart.find(
-      item =>
-        item.id === productId
-    );
+const product = products[productId];
 
+if (!product) {
 
-  if (existingProduct) {
+ 
+console.error(
+  "Produkt nicht gefunden:",
+  productId
+);
 
-    existingProduct.quantity++;
-
-  } else {
-
-    cart.push({
-
-      id: productId,
-
-      quantity: 1
-
-    });
-
-  }
-
-
-  saveCart();
-
-  updateCart();
-
-  openCart();
+return;
+ 
 
 }
 
+const existingProduct =
+cart.find(
+item =>
+item.id === productId
+);
+
+if (existingProduct) {
+
+ 
+existingProduct.quantity++;
+ 
+
+} else {
+
+ 
+cart.push({
+
+  id: productId,
+
+  quantity: 1
+
+});
+ 
+
+}
+
+saveCart();
+
+updateCart();
+
+/*
+Kein Drawer mehr:
+Der Nutzer sieht die aktualisierte
+Anzahl oben rechts.
+*/
+
+}
 
 /* =========================================
-   MENGE ÄNDERN
+MENGE ÄNDERN
 ========================================= */
 
 function changeQuantity(
-  productId,
-  amount
+productId,
+amount
 ) {
 
-  const item =
-    cart.find(
-      item =>
-        item.id === productId
-    );
+const item =
+cart.find(
+item =>
+item.id === productId
+);
 
+if (!item) return;
 
-  if (!item) return;
+item.quantity += amount;
 
+if (item.quantity <= 0) {
 
-  item.quantity += amount;
-
-
-  if (item.quantity <= 0) {
-
-    cart =
-      cart.filter(
-        item =>
-          item.id !== productId
-      );
-
-  }
-
-
-  saveCart();
-
-  updateCart();
+ 
+cart =
+  cart.filter(
+    item =>
+      item.id !== productId
+  );
+ 
 
 }
 
+saveCart();
+
+updateCart();
+
+renderCartPage();
+
+}
 
 /* =========================================
-   PRODUKT ENTFERNEN
+PRODUKT ENTFERNEN
 ========================================= */
 
 function removeFromCart(productId) {
 
-  cart =
-    cart.filter(
-      item =>
-        item.id !== productId
-    );
+cart =
+cart.filter(
+item =>
+item.id !== productId
+);
 
+saveCart();
 
-  saveCart();
+updateCart();
 
-  updateCart();
+renderCartPage();
 
 }
 
-
 /* =========================================
-   WARENKORB AKTUALISIEREN
+WARENKORB AKTUALISIEREN
 ========================================= */
 
 function updateCart() {
 
-  const cartItems =
-    document.getElementById(
-      "cart-items"
-    );
+const cartCount =
+document.getElementById(
+"cart-count"
+);
 
+if (!cartCount) return;
 
-  const cartCount =
-    document.getElementById(
-      "cart-count"
-    );
+let quantityTotal = 0;
 
+cart.forEach(item => {
 
-  const cartTotal =
-    document.getElementById(
-      "cart-total"
-    );
+ 
+quantityTotal +=
+  item.quantity;
+ 
 
+});
 
-  let total = 0;
-
-  let quantityTotal = 0;
-
-
-  if (cart.length === 0) {
-
-    cartItems.innerHTML = `
-
-      <p style="
-        color:#82756a;
-        text-align:center;
-        padding:40px 0;
-      ">
-
-        Dein Warenkorb ist noch leer.
-
-      </p>
-
-    `;
-
-  } else {
-
-    cartItems.innerHTML =
-      cart.map(item => {
-
-        const product =
-          products[item.id];
-
-
-        const itemTotal =
-          product.price *
-          item.quantity;
-
-
-        total += itemTotal;
-
-        quantityTotal +=
-          item.quantity;
-
-
-        return `
-
-          <div class="cart-item">
-
-            <div>
-
-              <div class="cart-item-name">
-
-                ${product.name}
-
-              </div>
-
-              <div class="cart-item-price">
-
-                € ${product.price
-                  .toFixed(2)
-                  .replace(".", ",")}
-
-                × ${item.quantity}
-
-              </div>
-
-
-              <div class="quantity-controls">
-
-                <button
-                  onclick="
-                    changeQuantity(
-                      '${product.id}',
-                      -1
-                    )
-                  "
-                >
-                  −
-                </button>
-
-
-                <span>
-                  ${item.quantity}
-                </span>
-
-
-                <button
-                  onclick="
-                    changeQuantity(
-                      '${product.id}',
-                      1
-                    )
-                  "
-                >
-                  +
-                </button>
-
-              </div>
-
-            </div>
-
-
-            <button
-              class="remove-item"
-              onclick="
-                removeFromCart(
-                  '${product.id}'
-                )
-              "
-            >
-              Entfernen
-            </button>
-
-          </div>
-
-        `;
-
-      }).join("");
-
-  }
-
-
-  cartCount.textContent =
-    quantityTotal;
-
-
-  cartTotal.textContent =
-    "€ " +
-    total
-      .toFixed(2)
-      .replace(".", ",");
+cartCount.textContent =
+quantityTotal;
 
 }
 
-
 /* =========================================
-   WARENKORB ÖFFNEN
+WARENKORB SEITE ÖFFNEN
 ========================================= */
 
 function openCart() {
 
-  document
-    .getElementById("cart-drawer")
-    .classList.add("active");
-
-
-  document
-    .getElementById("cart-overlay")
-    .classList.add("active");
+window.location.href =
+"warenkorb.html";
 
 }
 
-
 /* =========================================
-   WARENKORB SCHLIESSEN
+CART SEITE RENDERN
 ========================================= */
 
-function closeCart() {
+function renderCartPage() {
 
-  document
-    .getElementById("cart-drawer")
-    .classList.remove("active");
+const cartItems =
+document.getElementById(
+"cart-page-items"
+);
+
+const cartTotal =
+document.getElementById(
+"cart-page-total"
+);
+
+if (!cartItems || !cartTotal) return;
+
+let total = 0;
+
+if (cart.length === 0) {
+
+ 
+cartItems.innerHTML = `
+
+  <div class="empty-cart">
+
+    <h2>Dein Warenkorb ist leer.</h2>
+
+    <p>
+      Vielleicht ist das richtige Buch
+      ja nur einen Klick entfernt.
+    </p>
+
+    <a
+      href="shop.html"
+      class="continue-shopping"
+    >
+      Zum Shop
+    </a>
+
+  </div>
+
+`;
 
 
-  document
-    .getElementById("cart-overlay")
-    .classList.remove("active");
+cartTotal.textContent =
+  "€ 0,00";
+
+
+return;
+ 
 
 }
 
+cartItems.innerHTML =
+cart.map(item => {
+
+ 
+  const product =
+    products[item.id];
+
+
+  if (!product) return "";
+
+
+  const itemTotal =
+    product.price *
+    item.quantity;
+
+
+  total += itemTotal;
+
+
+  return `
+
+    <div class="cart-page-item">
+
+      <div class="cart-page-product">
+
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+        >
+
+        <div class="cart-page-product-info">
+
+          <h2>
+            ${product.name}
+          </h2>
+
+          <p>
+            Taschenbuch
+          </p>
+
+          <span class="cart-page-price">
+            € ${product.price
+              .toFixed(2)
+              .replace(".", ",")}
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="cart-page-quantity">
+
+        <button
+          type="button"
+          onclick="
+            changeQuantity(
+              '${product.id}',
+              -1
+            )
+          "
+        >
+          −
+        </button>
+
+        <span>
+          ${item.quantity}
+        </span>
+
+        <button
+          type="button"
+          onclick="
+            changeQuantity(
+              '${product.id}',
+              1
+            )
+          "
+        >
+          +
+        </button>
+
+      </div>
+
+
+      <div class="cart-page-item-total">
+
+        € ${itemTotal
+          .toFixed(2)
+          .replace(".", ",")}
+
+      </div>
+
+
+      <button
+        type="button"
+        class="cart-page-remove"
+        onclick="
+          removeFromCart(
+            '${product.id}'
+          )
+        "
+      >
+        Entfernen
+      </button>
+
+    </div>
+
+  `;
+
+}).join("");
+ 
+
+cartTotal.textContent =
+"€ " +
+total
+.toFixed(2)
+.replace(".", ",");
+
+}
 
 /* =========================================
-   CHECKOUT
+CHECKOUT
 ========================================= */
 
 function checkout() {
 
-  if (cart.length === 0) {
+if (cart.length === 0) {
 
-    alert(
-      "Dein Warenkorb ist noch leer."
-    );
+ 
+alert(
+  "Dein Warenkorb ist noch leer."
+);
 
-    return;
-
-  }
-
-
-  /*
-    STRIPE KOMMT HIER IN SCHRITT 3.
-
-    Wichtig:
-    Der Stripe Secret Key darf NICHT
-    hier im Browser stehen.
-
-    Später wird stattdessen z.B.
-    /api/create-checkout-session
-    aufgerufen.
-
-  */
-
-
-  alert(
-    "Der Stripe-Checkout wird im nächsten Schritt aktiviert."
-  );
+return;
+ 
 
 }
 
-
-/* =========================================
-   INITIALISIERUNG
-========================================= */
-
-updateCart();
-
-
-/* =========================================
-   INSTAGRAM
-========================================= */
-
 /*
-   ACHTUNG:
+STRIPE KOMMT HIER IN SCHRITT 3.
 
-   Deinen bisherigen Instagram Access Token
-   solltest du NICHT mehr direkt hier einsetzen.
+ 
+Der Stripe Secret Key darf NICHT
+im Browser stehen.
 
-   Für die finale Version wird der Instagram
-   Feed über das Backend geladen.
+Später wird hier dein Backend
+/api/create-checkout-session
+aufgerufen.
+ 
 
 */
 
-
-async function fetchInstagramPosts() {
-
-  /*
-    Wird in Schritt 3/4 über das Backend
-    angeschlossen.
-  */
+alert(
+"Der Stripe-Checkout wird im nächsten Schritt aktiviert."
+);
 
 }
 
-
 /* =========================================
-   ESC = WARENKORB SCHLIESSEN
+PRODUKTBILDER
 ========================================= */
 
-document.addEventListener(
-  "keydown",
-  event => {
+function changeProductImage(
+button,
+imagePath
+) {
 
-    if (
-      event.key === "Escape"
-    ) {
-
-      closeCart();
-
-    }
-
-  }
+const mainImage =
+document.getElementById(
+"main-product-image"
 );
-
-
-function changeProductImage(button, imagePath) {
-const mainImage = document.getElementById("main-product-image");
 
 if (!mainImage) return;
 
-mainImage.src = imagePath;
+mainImage.src =
+imagePath;
 
-document.querySelectorAll(".gallery-thumb").forEach((thumb) => {
-thumb.classList.remove("active");
-});
-
-button.classList.add("active");
-}
+document
+.querySelectorAll(
+".gallery-thumb"
+)
+.forEach(
+thumb => {
 
  
+    thumb.classList.remove(
+      "active"
+    );
+
+  }
+);
+ 
+
+button.classList.add(
+"active"
+);
+
+}
+
+/* =========================================
+INITIALISIERUNG
+========================================= */
+
+document.addEventListener(
+"DOMContentLoaded",
+() => {
+
+ 
+updateCart();
+
+renderCartPage();
+ 
+
+}
+);
+
+/* =========================================
+ESC
+========================================= */
+
+document.addEventListener(
+"keydown",
+event => {
+
+ 
+if (
+  event.key === "Escape"
+) {
+
+  /*
+    Auf der neuen Warenkorb-Seite
+    gibt es keinen Drawer mehr.
+  */
+
+}
+ 
+
+}
+);
+
+/* =========================================
+INSTAGRAM
+========================================= */
+
+async function fetchInstagramPosts() {
+
+/*
+Wird später über das Backend
+angeschlossen.
+*/
+
+}
