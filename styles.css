@@ -279,7 +279,7 @@ HERO
   z-index: 2;
 
   text-align: center;
-  color: white;
+  color: rgba(79, 102, 84, 1)
 }
 
 .hero-overlay {
@@ -307,7 +307,7 @@ HERO
 }
 
 .hero-content h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", Georgia, serif;
 
   font-size: clamp(1.6rem, 3.5vw, 2.7rem);
   line-height: 1.1;
